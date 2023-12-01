@@ -133,6 +133,7 @@ https://developer.apple.com/documentation/security/disabling_and_enabling_system
 https://developer.apple.com/forums/thread/17452
 https://support.apple.com/en-ca/guide/mac-help/mchl46d531d6/14.0/mac/14.0
 https://windsketch.cc/macbook-disable-swap
+
 https://apple.stackexchange.com/questions/118839/vm-compressor-mode-vm-compressor-mode-values-for-enabled-compressed-memory-in
 
 **Important:** Please be aware that modifying system settings can have significant consequences. This guide is provided as-is, and the author takes no responsibility for any issues or damage resulting from its use.
