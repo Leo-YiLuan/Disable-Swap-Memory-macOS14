@@ -5,7 +5,7 @@
 
 **Save your SSD life!**
 
-Tested with macOS Sonoma Version 14.1.1
+Tested with macOS Sonoma Version 14.1.2
 
 Most of the guides online do not work with macOS Sonoma 14.1.1 or later.
 
