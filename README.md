@@ -34,14 +34,14 @@
 ```bash
 % csrutil disable    
 ```
-2. restart computer, check SIP
+2. restart the computer, check SIP
 ```bash
 % csrutil status  
 Output: System Integrity Protection status: disabled.
 ```
 ## Disable Swap Memory
 
-### Compressor mode in Vertual Memory
+### Compressor mode in Virtual Memory
 1. Check current mode:
 ```bash
 % sysctl -a vm.compressor_mode
@@ -102,7 +102,7 @@ This is an unsupported configuration, likely to break in the future and leave yo
 ```
 ---
 
-4. Restart computer and check Compreassor mode
+4. Restart the computer and check Compressor mode
 ```bash
 % sysctl vm.compressor_mode    
 vm.compressor_mode: 2
@@ -113,7 +113,7 @@ vm.compressor_mode: 2
 **note: To enable Swap memory back**
 
 
-In terminal under macOS Recovery:
+In the terminal under macOS Recovery:
 ```bash
 % csrutil enable
 ```
@@ -126,4 +126,3 @@ https://support.apple.com/en-ca/guide/mac-help/mchl46d531d6/14.0/mac/14.0
 https://windsketch.cc/macbook-disable-swap/
 
 **Important:** Please be aware that modifying system settings can have significant consequences. This guide is provided as-is, and the author takes no responsibility for any issues or damage resulting from its use.
-
