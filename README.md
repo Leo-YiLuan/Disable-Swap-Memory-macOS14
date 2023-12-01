@@ -1,8 +1,17 @@
-# Disable Swap Memory on macOS Sonoma Version 14.1.1
+# Disable Swap Memory - Yi(Leo) Luan
+
+**Last Updated:** December 1, 2023  
+**Location:** Canada
 
 **Save your SSD life!**
 
+Tested with macOS Sonoma Version 14.1.1
+
+Most of the guides online do not work with macOS Sonoma 14.1.1 or later.
+
 *Warning: With insufficient memory, the kernel may potentially terminate processes. This guide is recommended for users with ample memory space based on their usage.*
+	
+**Source:** [Original Guide](https://github.com/digoal/blog/blob/master/202212/20221207_01.md) by digoal. Thank you digoal!
 
 ## Disable SIP (System Integrity Protection)
 
@@ -119,10 +128,10 @@ In the terminal under macOS Recovery:
 ```
 
 # Reference
-https://github.com/digoal/blog/blob/master/202212/20221207_01.md
 https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection
 https://developer.apple.com/forums/thread/17452
 https://support.apple.com/en-ca/guide/mac-help/mchl46d531d6/14.0/mac/14.0
 https://windsketch.cc/macbook-disable-swap/
+https://apple.stackexchange.com/questions/118839/vm-compressor-mode-vm-compressor-mode-values-for-enabled-compressed-memory-in
 
 **Important:** Please be aware that modifying system settings can have significant consequences. This guide is provided as-is, and the author takes no responsibility for any issues or damage resulting from its use.
