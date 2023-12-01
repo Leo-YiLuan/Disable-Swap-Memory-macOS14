@@ -129,16 +129,18 @@ In the terminal under macOS Recovery:
 ```
 
 # Reference
-https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection
+SIP: https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection
 
-https://developer.apple.com/forums/thread/17452
+csrutil enable --without nvram: https://developer.apple.com/forums/thread/17452
 
-https://support.apple.com/en-ca/guide/mac-help/mchl46d531d6/14.0/mac/14.0
+macOS Recovery: https://support.apple.com/en-ca/guide/mac-help/mchl46d531d6/14.0/mac/14.0
 
-https://windsketch.cc/macbook-disable-swap   
+outdated guide: https://windsketch.cc/macbook-disable-swap
 
-https://apple.stackexchange.com/questions/118839/vm-compressor-mode-vm-compressor-mode-values-for-enabled-compressed-memory-in
+vm.compressor_mode: https://apple.stackexchange.com/questions/118839/vm-compressor-mode-vm-compressor-mode-values-for-enabled-compressed-memory-in
 
-https://support.apple.com/en-ca/guide/terminal/apdc6c1077b-5d5d-4d35-9c19-60f2397b2369/mac#:~:text=You%20don't%20interact%20with,should%20be%20started%20by%20launchd%20.
+launchctl: https://support.apple.com/en-ca/guide/terminal/apdc6c1077b-5d5d-4d35-9c19-60f2397b2369/mac#:~:text=You%20don't%20interact%20with,should%20be%20started%20by%20launchd%20
+
+Manual page of dynmix_pager(MacOSX): https://www.unix.com/man-page/osx/8/dynamic_pager/
 
 **Important:** Please be aware that modifying system settings can have significant consequences. This guide is provided as-is, and the author takes no responsibility for any issues or damage resulting from its use.
