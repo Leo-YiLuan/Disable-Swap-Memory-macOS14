@@ -69,21 +69,21 @@ vm.compressor_mode: 4
 ```bash
 % sudo nvram boot-args="vm_compressor=2"
 ```
+Use```% nvram -p|grep compress``` to check
 
 3. Disable dynamic_pager:
-
 ```bash
 % sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist
 
 % sudo rm /private/var/vm/swapfile*
 ```
-4. Restart and check current mode:
+4. Restart and check compressor mode:
 ```bash
 % sysctl vm.compressor_mode
 vm.compressor_mode: 2
 ```
 
-## Enable SIP
+## Enable SIP (Recommanded)
 1. Open Terminal under macOS Recovery
 
 2. Enable SIP without NVRAM Protections	& Boot-arg Restrictions:
