@@ -43,7 +43,7 @@ Most of the guides online do not work with macOS Sonoma 14.1.1 or later.
 ```bash
 % csrutil disable    
 ```
-2. restart the computer, check SIP
+2. restart your computer, check SIP
 ```bash
 % csrutil status  
 Output: System Integrity Protection status: disabled.
@@ -56,13 +56,13 @@ Output: System Integrity Protection status: disabled.
 % sysctl -a vm.compressor_mode
 ```
 
-  * *1 -> Compress memory: Disabled, Swap memory: Disabled*
+  * *1 -> Compress memory: Disabled； Swap memory: Disabled*
 
-  * *2 -> Compress memory: Enabled, Swap memory: Disabled*
+  * *2 -> Compress memory: Enabled； Swap memory: Disabled*
 
-  * *3 -> Compress memory: Disabled, Swap memory: Enabled*
+  * *3 -> Compress memory: Disabled； Swap memory: Enabled*
 
-  * *4 -> Compress memory: Enabled, Swap memory: Enabled*
+  * *4 -> Compress memory: Enabled； Swap memory: Enabled*
 
 2. Setup boot configuration to disable Swap memory:
 ```bash
@@ -111,7 +111,7 @@ This is an unsupported configuration, likely to break in the future and leave yo
 ```
 ---
 
-4. Restart the computer and check Compressor mode
+4. Restart your computer and check Compressor mode
 ```bash
 % sysctl vm.compressor_mode    
 vm.compressor_mode: 2
