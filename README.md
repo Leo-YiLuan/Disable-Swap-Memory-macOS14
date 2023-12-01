@@ -11,7 +11,7 @@ Most of the guides online do not work with macOS Sonoma 14.1.1 or later.
 
 *Warning: With insufficient memory, the kernel may potentially terminate processes. This guide is recommended for users with ample memory space based on their usage.*
 	
-**Source:** [Original Guide](https://github.com/digoal/blog/blob/master/202212/20221207_01.md) by digoal. Thank you digoal!
+**Source:** [guide](https://github.com/digoal/blog/blob/master/202212/20221207_01.md) by digoal. Thank you digoal!
 
 ## Disable SIP (System Integrity Protection)
 
