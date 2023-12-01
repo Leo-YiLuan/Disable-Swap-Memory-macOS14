@@ -71,7 +71,7 @@ vm.compressor_mode: 4
 ```
 Use```% nvram -p|grep compress``` to check
 
-3. Disable dynamic_pager:
+3. Unload dynamic_pager daemons to prevent it from starting at boot.
 ```bash
 % sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist
 
@@ -138,5 +138,7 @@ https://support.apple.com/en-ca/guide/mac-help/mchl46d531d6/14.0/mac/14.0
 https://windsketch.cc/macbook-disable-swap   
 
 https://apple.stackexchange.com/questions/118839/vm-compressor-mode-vm-compressor-mode-values-for-enabled-compressed-memory-in
+
+https://support.apple.com/en-ca/guide/terminal/apdc6c1077b-5d5d-4d35-9c19-60f2397b2369/mac#:~:text=You%20don't%20interact%20with,should%20be%20started%20by%20launchd%20.
 
 **Important:** Please be aware that modifying system settings can have significant consequences. This guide is provided as-is, and the author takes no responsibility for any issues or damage resulting from its use.
