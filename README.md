@@ -39,7 +39,7 @@ Most of the guides online do not work with macOS Sonoma 14.1.1 or later.
 
 ### Disable SIP in Terminal under macOS Recovery
 
-1. menu bar -> tool -> Open Terminal
+1. Menu bar: Utilities -> Terminal
 ```bash
 % csrutil disable    
 ```
@@ -53,7 +53,8 @@ Output: System Integrity Protection status: disabled.
 ### Compressor mode in Virtual Memory
 1. Check current mode:
 ```bash
-% sysctl -a vm.compressor_mode
+% sysctl vm.compressor_mode
+vm.compressor_mode: 4
 ```
 
   * *1 -> Compress memory: Disabled； Swap memory: Disabled*
@@ -78,8 +79,8 @@ Output: System Integrity Protection status: disabled.
 ```
 4. Restart and check current mode:
 ```bash
-% sysctl -a vm.compressor_mode
-Output: 2
+% sysctl vm.compressor_mode
+vm.compressor_mode: 2
 ```
 
 ## Enable SIP
