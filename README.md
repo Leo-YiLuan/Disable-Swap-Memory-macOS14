@@ -108,7 +108,6 @@ Configuration:
 
 This is an unsupported configuration, likely to break in the future and leave your machine in an unknown state.
 ```
----
 
 4. Restart your computer and check Compressor mode
 ```bash
@@ -118,8 +117,17 @@ vm.compressor_mode: 2
 
 ***Swap Memory Disabled***
 
+**note: To re-enable Swap memory**
 
-# Re-enable Swap Memory:
+***fully re-enabling SIP will automatically Re-enable Swap Memory for MacOS 14.0+ itself***
+
+In the terminal under macOS Recovery:
+```bash
+% csrutil enable
+```
+---
+
+# Re-enable Swap Memory without fully re-enable SIP:
 
 ## Step 1: Reset Boot Configuration for Swap Memory
 
@@ -156,18 +164,6 @@ sysctl vm.compressor_mode
 
 The output should indicate that both memory compression and swap memory are enabled (typically vm.compressor_mode: 4).
 
-## Optional: Re-enable System Integrity Protection (SIP)
-
-If you previously disabled SIP as part of the process to disable swap memory, you might want to re-enable it for security reasons:
-1. Restart your Mac in Recovery Mode.
-2. Open Terminal from the Utilities menu.
-3. Type the following command to enable SIP:
-
-```bash
-csrutil enable
-```
-
-4. Restart your Mac.
 
 # Reference
 SIP: https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection
