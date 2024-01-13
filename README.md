@@ -118,13 +118,56 @@ vm.compressor_mode: 2
 
 ***Swap Memory Disabled***
 
-**note: To enable Swap memory back**
 
+# Re-enable Swap Memory:
 
-In the terminal under macOS Recovery:
+## Step 1: Reset Boot Configuration for Swap Memory
+
+Open the Terminal application on your Mac.
+Reset the boot configuration to its default state, which includes enabling swap memory. Execute the following command:
+
 ```bash
-% csrutil enable
+sudo nvram -d boot-args
 ```
+
+This command removes the custom boot arguments that were set to disable swap memory.
+
+## Step 2: Reload dynamic_pager Daemon
+
+The dynamic_pager daemon controls the swap file in macOS. To re-enable it, you need to reload the daemon. In Terminal, execute:
+
+```bash
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist
+```
+
+This command re-enables the daemon, allowing macOS to manage swap files automatically.
+
+## Step 3: Restart Your Mac
+
+After executing these commands, restart your Mac to apply the changes.
+
+## Step 4: Verify Swap Memory Re-activation
+
+After your Mac restarts, open Terminal again and check the compressor mode to ensure that swap memory is re-enabled:
+
+```bash
+sysctl vm.compressor_mode
+```
+
+The output should indicate that both memory compression and swap memory are enabled (typically vm.compressor_mode: 4).
+
+## Optional: Re-enable System Integrity Protection (SIP)
+
+If you previously disabled SIP as part of the process to disable swap memory, you might want to re-enable it for security reasons:
+1. Restart your Mac in Recovery Mode.
+2. Open Terminal from the Utilities menu.
+3. Type the following command to enable SIP:
+
+```bash
+csrutil enable
+```
+
+4. Restart your Mac.
 
 # Reference
 SIP: https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection
