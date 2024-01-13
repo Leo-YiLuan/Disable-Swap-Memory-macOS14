@@ -1,9 +1,16 @@
-# Disable Swap Memory on macOS Sonoma Version 14.1.1
+# Disable Swap Memory - Yi(Leo) Luan
+
+**Last Updated:** December 1, 2023  
+**Location:** Canada
 
 **Save your SSD life!**
 
-*Warning: With insufficient memory, the kernel may potentially terminate processes. This guide is recommended for users with ample memory space based on their usage.*
+Tested with macOS Sonoma Version 14.1.2
 
+Most of the guides online do not work with macOS Sonoma 14.1.1 or later.
+
+*Warning: With insufficient memory, the kernel may potentially terminate processes. This guide is recommended for users with ample memory space based on their usage.*
+	
 ## Disable SIP (System Integrity Protection)
 
 ### Start up your computer in macOS Recovery (Apple Silicon)
@@ -30,50 +37,51 @@
 
 ### Disable SIP in Terminal under macOS Recovery
 
-1. menu bar -> tool -> Open Terminal
+1. Menu bar: Utilities -> Terminal
 ```bash
 % csrutil disable    
 ```
-2. restart computer, check SIP
+2. restart your computer, check SIP
 ```bash
 % csrutil status  
 Output: System Integrity Protection status: disabled.
 ```
 ## Disable Swap Memory
 
-### Compressor mode in Vertual Memory
+### Compressor mode in Virtual Memory
 1. Check current mode:
 ```bash
-% sysctl -a vm.compressor_mode
+% sysctl vm.compressor_mode
+vm.compressor_mode: 4
 ```
 
-  * *1 -> Compress memory: Disabled, Swap memory: Disabled*
+  * *1 -> Compress memory: Disabled； Swap memory: Disabled*
 
-  * *2 -> Compress memory: Enabled, Swap memory: Disabled*
+  * *2 -> Compress memory: Enabled； Swap memory: Disabled*
 
-  * *3 -> Compress memory: Disabled, Swap memory: Enabled*
+  * *3 -> Compress memory: Disabled； Swap memory: Enabled*
 
-  * *4 -> Compress memory: Enabled, Swap memory: Enabled*
+  * *4 -> Compress memory: Enabled； Swap memory: Enabled*
 
 2. Setup boot configuration to disable Swap memory:
 ```bash
 % sudo nvram boot-args="vm_compressor=2"
 ```
+Use```% nvram -p|grep compress``` to check
 
-3. Disable dynamic_pager:
-
+3. Unload dynamic_pager daemons to prevent it from starting at boot.
 ```bash
 % sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist
 
 % sudo rm /private/var/vm/swapfile*
 ```
-4. Restart and check current mode:
+4. Restart and check compressor mode:
 ```bash
-% sysctl -a vm.compressor_mode
-Output: 2
+% sysctl vm.compressor_mode
+vm.compressor_mode: 2
 ```
 
-## Enable SIP
+## Enable SIP (Recommanded)
 1. Open Terminal under macOS Recovery
 
 2. Enable SIP without NVRAM Protections	& Boot-arg Restrictions:
@@ -102,7 +110,7 @@ This is an unsupported configuration, likely to break in the future and leave yo
 ```
 ---
 
-4. Restart computer and check Compreassor mode
+4. Restart your computer and check Compressor mode
 ```bash
 % sysctl vm.compressor_mode    
 vm.compressor_mode: 2
@@ -113,10 +121,24 @@ vm.compressor_mode: 2
 **note: To enable Swap memory back**
 
 
-In terminal under macOS Recovery:
+In the terminal under macOS Recovery:
 ```bash
 % csrutil enable
 ```
 
-**Important:** Please be aware that modifying system settings can have significant consequences. This guide is provided as-is, and the author takes no responsibility for any issues or damage resulting from its use.
+# Reference
+SIP: https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection
 
+csrutil enable --without nvram: https://developer.apple.com/forums/thread/17452
+
+macOS Recovery: https://support.apple.com/en-ca/guide/mac-help/mchl46d531d6/14.0/mac/14.0
+
+outdated guide: https://windsketch.cc/macbook-disable-swap
+
+vm.compressor_mode: https://apple.stackexchange.com/questions/118839/vm-compressor-mode-vm-compressor-mode-values-for-enabled-compressed-memory-in
+
+launchctl: https://support.apple.com/en-ca/guide/terminal/apdc6c1077b-5d5d-4d35-9c19-60f2397b2369/mac#:~:text=You%20don't%20interact%20with,should%20be%20started%20by%20launchd%20
+
+Manual page of dynmix_pager(MacOSX): https://www.unix.com/man-page/osx/8/dynamic_pager/
+
+**Important:** Please be aware that modifying system settings can have significant consequences. This guide is provided as-is, and the author takes no responsibility for any issues or damage resulting from its use.
