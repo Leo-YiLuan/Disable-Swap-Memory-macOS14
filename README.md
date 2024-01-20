@@ -1,6 +1,6 @@
 # Disable Swap Memory - Yi(Leo) Luan
 
-**Last Updated:** December 1, 2023  
+**Last Updated:** January 20, 2024  
 **Location:** Canada
 
 **Save your SSD life!**
